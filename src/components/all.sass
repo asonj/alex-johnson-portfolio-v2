@@ -1,67 +1,63 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700;800&family=Roboto:wght@400;500&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap')
 @import "./include-media.scss"
 
 // Config vars
-$brand-1: #001e64
-$brand-2: #2ab95b
-$brand-3: #cbb247
+$brand-1: #f4f9fc
+$brand-2: #C3F2F9
+$brand-3: #26408B
 $brand-gray: rgb(117, 117, 117)
-$white: #f8f9fa
+$white: #f7f8f9
 $off-white: #f4f4f4
 $primary: $brand-1
 $body-color: #333
 $black: #2b2523
 $primary-invert: $black
 
-$font1: "Overpass", "Helvetica", "Arial", sans-serif
+$font1: "Ubuntu", "Helvetica", "Arial", sans-serif
 $font2: "Roboto", "Helvetica", "Arial", sans-serif
-
+$font-mono: "SFMono-Regular","Menlo","Monaco","Consolas","Liberation Mono","Courier New","monospace"
 body
   font-family: $font1
   font-weight: 500
-  font-size: 16px
+  font-size: 18px
   line-height: 1.5
-  color: $primary-invert
-  background-color: $white
-  .bg-white
-    background: #fff
-body p a
   color: $brand-2
+  background-color: darken($brand-3, 10%)
+  counter-reset: my-counter
+  counter-reset: nav-counter
+  z-index: 1
+.layoutWrapper
+  margin: 1rem
+  background-color: $brand-3
+
+.mono
+  font-family: $font-mono
+  color: $white
 
 body .navbar
-  padding-top: 0
-  padding-bottom: 0
+  background-color: $brand-3
+  border-top: solid 1rem darken($brand-3, 10%)
+  margin: 0px 1rem 10px 1rem
   font-weight: normal
-  background-color: $off-white
-  .dropdown:hover > .dropdown-menu
-    display: block
-
-  .dropdown-item
-    &:hover a
-      text-decoration: none !important
-      color: lighten($brand-1, 50%)
-    &:active
-      color: $brand-1
-      background-color: darken($white, 5%)
+  font-size: 16px
+  position: fixed
+  top: 0
+  transition: top 0.6s
+  &.navbar-hidden
+    top: -73px
   .nav-link
-    color: $brand-1 !important
+    color: $brand-2
     padding-right: .75em !important
     padding-left: .75em !important
     a
-      color: $brand-1
+      color: $brand-2
       &:hover
         text-decoration: none !important
-        color: lighten($brand-1, 50%)
-  .popup
-    max-width: 500px
-    position: fixed
-    bottom: 1%
-    right: 1%
-    .ebook-small
-      margin-right: 8px
-      width: 3em
-      height: auto
+        color: $white
+  .navbar-brand a
+    color: $brand-2
+    font-weight: bold
 body h1
   font-family: $font1
   font-weight: 800
@@ -70,7 +66,6 @@ body h2
   font-family: $font1
   font-weight: 800
   font-size: 40px
-  color: $brand-2
   padding-bottom: 3%
 
 body h3
@@ -83,17 +78,165 @@ body p
   font-weight: 500
   line-height: 1.7
 
-.green
-  color: $brand-2 !important
-.blue
+.color1
   color: $brand-1 !important
+.color2
+  color: $brand-2 !important
+.color3
+  color: $brand-3 !important
 .white
   color: $white !important
 .black, .black h2, .black h3
   color: $black !important
 .gray, .gray h2, .gray h3
   color: $brand-gray !important
+.bold
+  font-weight: bold
+.numbered
+  display: flex
+  align-items: center
+  position: relative
+  font-size: clamp(26px, 5vw, 40px)
+  margin: 10px 0px 40px
+  width: 100%
+  white-space: nowrap
 
+  span
+    position: relative
+    font-family: $font-mono
+    margin-right: 8px
+    font-size: clamp(15px, 1.5vw, 30px)
+    color: $white
+    bottom: -6px
+
+  &::after
+    content: ""
+    display: block
+    position: relative
+    top: 0
+    width: 100%
+    flex-grow: 1
+    height: 1px
+    margin-left: 20px
+    background-color: $white
+
+.numbered-nav::before
+  font-family: $font-mono
+  margin-right: 4px
+  font-size: inherit
+  color: $white
+  counter-increment: nav-counter
+  content: "0" counter(nav-counter) "."
+  white-space: nowrap
+
+.masked-image
+  max-width: 400px
+  border-radius: 12px
+  z-index: 2
+  position: relative
+  background-color: $brand-2
+  transition: all 2s ease 0s
+  .gatsby-image-wrapper
+    position: relative
+    overflow: hidden
+    filter: grayscale(90%) contrast(1)
+    mix-blend-mode: multiply
+    border-radius: 12px
+    &:hover
+      filter: none
+      mix-blend-mode: normal
+  // &::after
+  //   border: 3px solid $white
+  //   top: 20px
+  //   left: 50px
+  //   z-index: -1
+  //   content: ""
+  //   border-radius: 12px
+  //   display: block
+  //   position: absolute
+  //   width: 90%
+  //   height: 100%
+
+.btn-outline-primary
+  color: $brand-2
+  border-color: $brand-2
+.project-description
+  text-align: left
+  z-index: 2
+  .project-overlap
+    position: relative
+    width: 170%
+    color: $brand-2
+    background-color: darken($brand-3, 10%)
+    border-radius: 12px
+    margin-top: 1rem
+    padding: 1rem 1rem 1rem 1rem
+    p
+      margin-bottom: 0
+
+    @include media('<=lg')
+      width: 100%
+      right: 0
+      padding: 1rem
+  &.right
+    text-align: right
+    @include media('<=lg')
+      text-align: left
+    .project-overlap
+      right: 70%
+      padding: 1rem 1rem 1rem 1rem
+      @include media('<=lg')
+        width: 100%
+        right: 0
+        padding: 1rem
+.project-image
+  text-align: center
+  z-index: 1
+  border-radius: 12px
+  transition: all .3s ease-in-out
+  &:hover
+    z-index: 3
+    transform: scale(1.1)
+    box-shadow: 0 15px 20px -6px #383838
+.svg-wrapper
+  display: inline-block
+  color: $brand-2
+  cursor: pointer
+  padding-left: 0.8rem
+  img
+    width: 30px
+    height: 30px
+    filter: invert(82%) sepia(24%) saturate(275%) hue-rotate(147deg) brightness(108%) contrast(95%)
+    &:hover
+      filter: invert(85%) sepia(1%) saturate(2733%) hue-rotate(199deg) brightness(118%) contrast(96%)
+  &.darker
+    img
+      filter: invert(19%) sepia(31%) saturate(4595%) hue-rotate(213deg) brightness(90%) contrast(86%)
+.tooltip .tooltip-inner
+  background-color: $brand-2
+  color: $brand-3
+  font-weight: bold
+.bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before
+  border-top-color: $brand-2
+
+.grid
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+  gap: 3rem
+  .card
+    background-color: $brand-2
+    color: $brand-3
+    padding: 1rem
+    .col:first-child
+      flex-grow: 0
+    .col:nth-child(2)
+      flex-grow: 4
+    .col:last-child
+      align-self: end
+.full-height
+  height: 100vh
+  .container
+    height: 100%
 .no-link-style
   text-decoration: none
   color: inherit
@@ -103,8 +246,12 @@ body p
   text-decoration: underline
 
 .title
+  color: $brand-2
+  font-size: clamp(40px, 7vw, 80px)
+
+.subtitle
   color: $white
-  font-size: 5rem
+  font-size: clamp(14px, 5vw, 18px)
 
 // Helper Classes
 .full-width-image-container
@@ -128,18 +275,10 @@ body p
   align-items: center
 
 footer.footer
+  margin-top: 5rem
   color: $white
-  padding: 3rem 0rem 3rem
-  background-color: $brand-1
-
-.social a
-  padding: .5em .5em .3em .5em
-  border-radius: 1em
-  background-color: #fff
-  margin: .5em
-  width: 1em
-  height: 1em
-  display: inlin
+  padding-bottom: 2rem
+  background-color: $brand-3
 
 .form
   color: $black

@@ -1,15 +1,6 @@
-# Netlify-Gatsby-Custom-Starter
+# Alex Johnson Portfolio v2
 
-## Features
+## Built with
 
-- Bootstrap
-- Blog Posts
-- Contact Form
-- Netlify Hosting
-- Netlify Identity
-- Google Analytics
-- SEO
-
-_Based on https://github.com/netlify-templates/gatsby-starter-netlify-cms_
-
-Alex Johnson
+- GatsbyJS
+- Netlify CMS
