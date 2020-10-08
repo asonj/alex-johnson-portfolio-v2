@@ -35,17 +35,20 @@ const NavbarComponent = (props) => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto">
           <Nav.Link>
-            <AnchorLink to="/#about" className="numbered-nav">
+            <AnchorLink to="/#about">
+              <span className="numbered-nav">01.</span>
               About
             </AnchorLink>
           </Nav.Link>
           <Nav.Link>
-            <AnchorLink to="/#projects" className="numbered-nav">
+            <AnchorLink to="/#projects">
+              <span className="numbered-nav">02.</span>
               Projects & Experience
             </AnchorLink>
           </Nav.Link>
           <Nav.Link>
-            <AnchorLink to="/#contact" className="numbered-nav">
+            <AnchorLink to="/#contact">
+              <span className="numbered-nav">03.</span>
               Contact
             </AnchorLink>
           </Nav.Link>
