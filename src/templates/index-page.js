@@ -1,9 +1,11 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import { Container, Row, Col, OverlayTrigger, Tooltip, Button } from "react-bootstrap";
 import { CgWebsite } from "react-icons/cg";
 import { MdOpenInNew, MdVideocam } from "react-icons/md";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 import SEO from "../components/seo";
+import Sparkle from "../components/Sparkle";
 import Layout from "../components/Layout";
 import Img from "gatsby-image";
 import githubSVG from "../../static/img/social/github.svg";
@@ -14,16 +16,16 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
     <SEO title={"Alex Johnson"} />
     <div className="full-height">
       <Container className="d-flex flex-row justify-content-center align-items-center">
-        <Row className="d-flex flex-column">
+        <Row className="d-flex flex-column" style={{ marginTop: "-15vh" }}>
           <Col>
             <p className="subtitle">Hi, my name is</p>
             <h1 className="title">Alex Johnson.</h1>
-            <h2 className="title lighten">I build things for the web.</h2>
+            <h2 className="title">I build things for the web.</h2>
           </Col>
           <Col lg={7}>
             <p>
-              I am a software developer located in Fresno, CA. I work remotely with people around the world in order to
-              design and build exceptional websites or applications from the ground up.
+              I am a software developer located in central California. I work remotely with people around the world in
+              order to design and build exceptional websites or applications from the ground up.
             </p>
           </Col>
         </Row>
@@ -40,14 +42,16 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
       <Row className="d-flex flex-row justify-content-center">
         <Col xs={11} lg={8}>
           <p>
-            Hello! My name is Alex Johnson. My goal is to bring people's ambitious ideas to life. Whether it's an
-            informative website, inventory management system, internal business software, or a beautiful display of
-            ideas... I can make it a reality.
+            My goal is to bring people's ambitious ideas to life. Whether it's an{" "}
+            <AnchorLink to="/#eduScrum">informative website</AnchorLink>,{" "}
+            <AnchorLink to="/#techcheck">inventory management system</AnchorLink>,{" "}
+            <AnchorLink to="/#wbs">internal business software</AnchorLink>, or a{" "}
+            <AnchorLink to="/#lightschools">beautiful display of ideas</AnchorLink>... I can make it a reality.
           </p>
           <p>
-            Not only do I enjoy making these sites, but I also strive to make this process enjoyable for <i>you</i>.
-            From the initial plans to the final result, I understand that communication and collaboration are key to
-            creating something awesome.
+            Not only do I enjoy making these sites, but I also strive to make this{" "}
+            <Sparkle>process enjoyable for you</Sparkle>. From the initial plans to the final result, I understand that
+            communication and collaboration are key to creating something awesome.
           </p>
           <p>
             My passion for computers and technology began when I was a child. I've gained valuable professional
@@ -75,7 +79,7 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
       <Row>
         <Col>
           {/* PROJECT 1 */}
-          <Row>
+          <Row id="#techcheck">
             <Col lg={8}>
               <OverlayTrigger
                 overlay={
@@ -131,7 +135,7 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
 
           {/* PROJECT 2 */}
 
-          <Row className="mt-5 pt-5">
+          <Row className="mt-5 pt-5" id="eduScrum">
             <Col className="project-description left order-1 order-lg-0">
               <h5 className="mono small mt-3 mt-xl-0">Featured Project</h5>
               <h4 className="bold">eduScrum Netherlands</h4>
@@ -161,7 +165,7 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
           </Row>
 
           {/* PROJECT 3 */}
-          <Row className="mt-5 pt-5">
+          <Row className="mt-5 pt-5" id="wbs">
             <Col lg={8}>
               <Img fluid={projectImage3} className="project-image" />
             </Col>
@@ -191,7 +195,7 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
 
           {/* PROJECT 4 */}
 
-          <Row className="mt-5 pt-5">
+          <Row className="mt-5 pt-5" id="lightschools">
             <Col className="project-description left order-1 order-lg-0">
               <h5 className="mono small mt-3 mt-xl-0">Featured Project</h5>
               <h4 className="bold">Lightschools</h4>
@@ -228,7 +232,7 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
         </Col>
       </Row>
     </Container>
-    <Container className="mt-5 pt-5">
+    <Container className="mt-5 pt-5 link-alt">
       <Row>
         <Col xs={12} className="mb-5">
           <h3 className="text-center">Other Noteworthy Projects</h3>
@@ -380,9 +384,10 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
             <span>03.</span>Get In Touch
           </h3>
         </Col>
-        <Col xs={10} md={8} lg={6} className="text-center">
+        <Col xs={10} md={8} lg={6} className="">
           I am currently looking for opportunities to be part of exciting projects. Whether you have a question, idea,
-          or just want to say hi, my inbox is always open. I will do my best to return a message as soon as possible.
+          or just want to say hi, my inbox is always open. I will do my best to get in touch with you as soon as
+          possible.
         </Col>
         <Col xs={10} md={8} lg={6} className="text-center mt-5">
           <a href="mailto:alexjohnson@sitefulstudios.com">

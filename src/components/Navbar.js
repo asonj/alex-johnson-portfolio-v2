@@ -1,35 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
+import { useScrollPosition } from "./hooks/useScrollPosition";
+import useWindowDimensions from "./hooks/useWindowDimensions";
 
 const NavbarComponent = (props) => {
   const [active, toggleActive] = useState(false);
-  const [navBarActiveClass, toggleNavBarActiveClass] = useState("");
-  const [prevScrollPos, updatePrevScrollPos] = useState(window.pageYOffset);
-  const [navVisible, setNavVisible] = useState(true);
-  const toggleHamburger = () => {
-    toggleActive(!active);
-    toggleNavBarActiveClass(!!navBarActiveClass ? toggleNavBarActiveClass("is-active") : "");
-  };
-
-  const handleScroll = () => {
-    const currentScrollPos = window.pageYOffset;
-    const visible = prevScrollPos > currentScrollPos;
-    console.log(currentScrollPos, prevScrollPos, visible);
-    updatePrevScrollPos(currentScrollPos);
-    setNavVisible(visible);
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  }, []);
+  const [sticky, setSticky] = useState(true);
+  const { width } = useWindowDimensions();
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const isShow = currPos.y > prevPos.y;
+      if (width < 768) {
+        setSticky(true);
+      } else {
+        if (isShow !== sticky) setSticky(isShow);
+      }
+    },
+    [sticky]
+  );
 
   return (
-    <Navbar collapseOnSelect expand="lg" fixed="top" className={navVisible ? "navbar" : "navbar navbar-hidden"}>
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      fixed="top"
+      style={{ transform: sticky ? "translateY(0%)" : "translateY(-100%)" }}
+    >
       <Navbar.Brand>
         <Link to="/">Alex Johnson</Link>
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={() => toggleActive(!active)} />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto">
           <Nav.Link>

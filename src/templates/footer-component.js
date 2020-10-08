@@ -36,7 +36,7 @@ export const FooterComponentTemplate = ({ contactInfo }) => {
       <Container fluid>
         <Row className="d-flex flex-row justify-content-center ">
           <Col className="text-center">
-            Made with <FaHeart style={{ color: "red" }} /> by Alex Johnson
+            Built with <FaHeart style={{ color: "#ff2929" }} /> by Alex Johnson
           </Col>
         </Row>
       </Container>

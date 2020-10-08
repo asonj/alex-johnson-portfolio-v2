@@ -6,6 +6,7 @@
 $brand-1: #f4f9fc
 $brand-2: #C3F2F9
 $brand-3: #26408B
+$brand-4: #4FFF99
 $brand-gray: rgb(117, 117, 117)
 $white: #f7f8f9
 $off-white: #f4f4f4
@@ -24,12 +25,19 @@ body
   line-height: 1.5
   color: $brand-2
   background-color: darken($brand-3, 10%)
+  // border-top: solid darken($brand-3, 10%) 1px
   counter-reset: my-counter
   counter-reset: nav-counter
   z-index: 1
 .layoutWrapper
   margin: 1rem
   background-color: $brand-3
+a
+  color: $brand-4
+  &:hover
+    color: $brand-2
+.link-alt a
+  color: #1ebd10
 
 .mono
   font-family: $font-mono
@@ -37,13 +45,14 @@ body
 
 body .navbar
   background-color: $brand-3
-  border-top: solid 1rem darken($brand-3, 10%)
-  margin: 0px 1rem 10px 1rem
+  // border-top: solid 1rem darken($brand-3, 10%)
+  margin-bottom: 10px
   font-weight: normal
   font-size: 16px
-  position: fixed
-  top: 0
-  transition: top 0.6s
+  position: sticky
+  bottom: 0
+  left: 0
+  transition: transform 400ms ease-in
   &.navbar-hidden
     top: -73px
   .nav-link
@@ -287,3 +296,31 @@ footer.footer
   padding: 5% 5%
   .row
     padding-bottom: 3%
+
+.sparkleSVG
+  position: absolute
+  display: block
+  pointer-events: none
+  z-index: 2
+  animation: spin 600ms forwards
+
+.wrapperSVG
+  position: absolute
+  pointer-events: none
+  animation: growAndShrink 600ms ease-in-out forwards
+
+@keyframes growAndShrink
+  0%
+    transform: scale(0)
+
+  50%
+    transform: scale(1)
+
+  100%
+    transform: scale(0)
+
+@keyframes spin
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(180deg)
