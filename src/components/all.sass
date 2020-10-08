@@ -175,6 +175,20 @@ body p
   font-weight: 500
   line-height: 1.7
 
+body::after
+  @include media('>=2500px')
+    content: "Wow you have a big monitor!"
+    display: block
+    position: fixed
+    top: 0px
+    bottom: 0px
+    left: 5rem
+    font-size: 6.5vh
+    pointer-events: none
+    transform: rotate(270deg)
+    transition: all 350ms ease
+    color: lighten($brand-3, 10%)
+
 .color1
   color: $brand-1 !important
 .color2

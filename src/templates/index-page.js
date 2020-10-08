@@ -9,7 +9,6 @@ import SEO from "../components/seo";
 import Sparkle from "../components/Sparkle";
 import Layout from "../components/Layout";
 import Img from "gatsby-image";
-import openSVG from "../../static/img/open.svg";
 
 export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, projectImage3, projectImage4 }) => (
   <>
@@ -24,7 +23,7 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
           </Col>
           <Col lg={7}>
             <p>
-              I am a software developer located in central California. I work remotely with people around the world in
+              I am a software developer located in Fresno, California. I work remotely with people around the world in
               order to design and build <Sparkle>exceptional websites</Sparkle> from the ground up.
             </p>
           </Col>
@@ -123,6 +122,7 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
               </div>
               <p className="mt-3 white">
                 Enterprise versions are in use by <br className="d-none d-xl-block" />
+                <Sparkle>hundreds of users</Sparkle> per day at <br className="d-none d-xl-block" />
                 CSU Fresno and CSU Sacramento.
               </p>
               <div className="svg-wrapper">

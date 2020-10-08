@@ -52,11 +52,11 @@ function SEO({ description, lang, meta, title }) {
       meta={[
         {
           name: `description`,
-          content: "SHAPING THE FUTURE OF WORK",
+          content: "Web and Software Development",
         },
         {
           name: `image`,
-          content: "https://semcostyle.us/img/og-image.png",
+          content: "https://alexjohnson.me/img/logo.png",
         },
         {
           itemprop: `name`,
@@ -64,11 +64,11 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           itemprop: `description`,
-          content: "SHAPING THE FUTURE OF WORK",
+          content: "Web and Software Development",
         },
         {
           itemprop: `image`,
-          content: "https://semcostyle.us/img/og-image.png",
+          content: "https://alexjohnson.me/img/logo.png",
         },
         {
           property: `og:title`,
@@ -76,11 +76,11 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:description`,
-          content: "SHAPING THE FUTURE OF WORK",
+          content: "Web and Software Development",
         },
         {
           property: `og:image`,
-          content: "https://semcostyle.us/img/og-image.png",
+          content: "https://alexjohnson.me/img/logo.png",
         },
         {
           property: `og:type`,
@@ -96,11 +96,11 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `twitter:description`,
-          content: "SHAPING THE FUTURE OF WORK",
+          content: "Web and Software Development",
         },
         {
           property: `twitter:image:src`,
-          content: "https://semcostyle.us/img/og-image.png",
+          content: "https://alexjohnson.me/img/logo.png",
         },
         {
           name: "viewport",
@@ -120,7 +120,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: "theme-color",
-          content: "#ffffff",
+          content: "#26408b",
         },
       ].concat(meta)}
     ></Helmet>
@@ -131,7 +131,7 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
-  title: "Semco Style Institute",
+  title: "Alex Johnson",
 };
 
 SEO.propTypes = {
