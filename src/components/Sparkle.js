@@ -50,8 +50,8 @@ function Sparkles({ children }) {
       // Make it so!
       setSparkles(nextSparkles);
     },
-    700,
-    900
+    300,
+    600
   );
   return (
     <span style={{ position: "relative", display: "inline-block" }}>

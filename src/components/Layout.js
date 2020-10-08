@@ -11,6 +11,13 @@ const TemplateWrapper = ({ children }) => {
   return (
     <div className="layoutWrapper">
       <NavbarComponent />
+      <div className="side-element">
+        <div className="link-wrapper">
+          <a href="mailto:alexjohnson@sitefulstudios.com" target="_blank" rel="noreferrer">
+            alex@sitefulstudios.com
+          </a>
+        </div>
+      </div>
       <div>{children}</div>
       <Footer />
     </div>

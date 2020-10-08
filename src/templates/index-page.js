@@ -3,12 +3,12 @@ import { graphql } from "gatsby";
 import { Container, Row, Col, OverlayTrigger, Tooltip, Button } from "react-bootstrap";
 import { CgWebsite } from "react-icons/cg";
 import { MdOpenInNew, MdVideocam } from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import SEO from "../components/seo";
 import Sparkle from "../components/Sparkle";
 import Layout from "../components/Layout";
 import Img from "gatsby-image";
-import githubSVG from "../../static/img/social/github.svg";
 import openSVG from "../../static/img/open.svg";
 
 export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, projectImage3, projectImage4 }) => (
@@ -25,7 +25,7 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
           <Col lg={7}>
             <p>
               I am a software developer located in central California. I work remotely with people around the world in
-              order to design and build exceptional websites or applications from the ground up.
+              order to design and build <Sparkle>exceptional websites</Sparkle> from the ground up.
             </p>
           </Col>
         </Row>
@@ -42,23 +42,38 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
       <Row className="d-flex flex-row justify-content-center">
         <Col xs={11} lg={8}>
           <p>
-            My goal is to bring people's ambitious ideas to life. Whether it's an{" "}
-            <AnchorLink to="/#eduScrum">informative website</AnchorLink>,{" "}
-            <AnchorLink to="/#techcheck">inventory management system</AnchorLink>,{" "}
-            <AnchorLink to="/#wbs">internal business software</AnchorLink>, or a{" "}
-            <AnchorLink to="/#lightschools">beautiful display of ideas</AnchorLink>... I can make it a reality.
+            My goal is to bring people's ambitious ideas <span className="cursive">to life</span>. Whether it's an{" "}
+            <AnchorLink to="/#eduScrum">
+              <span>informative website</span>
+            </AnchorLink>
+            ,{" "}
+            <AnchorLink to="/#techcheck">
+              <span>inventory management system</span>
+            </AnchorLink>
+            ,{" "}
+            <AnchorLink to="/#wbs">
+              <span>internal business software</span>
+            </AnchorLink>
+            , or a <AnchorLink to="/#lightschools">beautiful display of ideas</AnchorLink>... I can make it a reality.
           </p>
           <p>
-            Not only do I enjoy making these sites, but I also strive to make this{" "}
-            <Sparkle>process enjoyable for you</Sparkle>. From the initial plans to the final result, I understand that
-            communication and collaboration are key to creating something awesome.
+            Not only do I enjoy making these sites, I also strive to make the process enjoyable for{" "}
+            <span className="cursive">you</span>. From the initial plans to the final result, I understand that
+            communication and collaboration are key to creating <Sparkle>something awesome</Sparkle>.
           </p>
           <p>
             My passion for computers and technology began when I was a child. I've gained valuable professional
             experience while working at California State University, Fresno for a period of five years, where I operated
-            a television studio for the Kremen Education Building. I worked closely with professors and local companies
-            to develop quality video, photo, and web content. This journey led to the start of my own company, Siteful
-            Studios, where I now work first-hand with people around the world.
+            a production studio for the{" "}
+            <a href="http://www.fresnostate.edu/kremen/" target="_blank" rel="noreferrer">
+              <span>Kremen School of Education and Human Development</span>
+            </a>
+            . I worked closely with professors and local companies to develop quality video, photo, and web content.
+            This journey led to the start of my own company,{" "}
+            <a href="sitefulstudios.com" target="_blank" rel="noreferrer">
+              Siteful Studios
+            </a>
+            , where I now work first-hand with people around the world.
           </p>
         </Col>
         <Col xs={11} lg={4} className="mx-auto">
@@ -97,7 +112,9 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
             </Col>
             <Col className="project-description right">
               <h5 className="mono small mt-3 mt-xl-0">Featured Project</h5>
-              <h4 className="bold">TechCheck </h4>
+              <h4 className="bold">
+                <span className="cursive">TechCheck</span>{" "}
+              </h4>
               <div className="project-overlap">
                 <p>
                   An open-source inventory reservation and management application featuring user accounts, online item
@@ -111,7 +128,7 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
               <div className="svg-wrapper">
                 <OverlayTrigger overlay={<Tooltip id="github">View Source Code</Tooltip>}>
                   <a href="https://github.com/asonj/TechCheck" target="_blank" rel="noreferrer">
-                    <img src={githubSVG} />
+                    <FaGithub />
                   </a>
                 </OverlayTrigger>
               </div>
@@ -126,7 +143,7 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
                   }
                 >
                   <a href="https://techcheck-demo.herokuapp.com/" target="_blank" rel="noreferrer">
-                    <img src={openSVG} />
+                    <MdOpenInNew />
                   </a>
                 </OverlayTrigger>
               </div>
@@ -138,7 +155,9 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
           <Row className="mt-5 pt-5" id="eduScrum">
             <Col className="project-description left order-1 order-lg-0">
               <h5 className="mono small mt-3 mt-xl-0">Featured Project</h5>
-              <h4 className="bold">eduScrum Netherlands</h4>
+              <h4 className="bold">
+                <span className="cursive">eduScrum Netherlands</span>
+              </h4>
               <div className="project-overlap">
                 <p>
                   eduScrum is a company which seeks to bring scrum to education. Their website had not been updated
@@ -147,10 +166,10 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
                 </p>
               </div>
               <p className="mt-3 white">eduScrum.nl is featured in English, Spanish, and Dutch.</p>
-              <div className="svg-wrapper">
+              <div className="svg-wrapper pl-0">
                 <OverlayTrigger overlay={<Tooltip id="github">Live Site</Tooltip>}>
                   <a href="https://eduscrum.nl" target="_blank" rel="noreferrer">
-                    <img src={openSVG} />
+                    <MdOpenInNew />
                   </a>
                 </OverlayTrigger>
               </div>
@@ -171,7 +190,9 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
             </Col>
             <Col className="project-description right">
               <h5 className="mono small mt-3 mt-xl-0">Featured Project</h5>
-              <h4 className="bold">Quote and Ordering System</h4>
+              <h4 className="bold">
+                <span className="cursive">Quote and Ordering System</span>
+              </h4>
               <div className="project-overlap">
                 <p>
                   A{" "}
@@ -198,12 +219,14 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
           <Row className="mt-5 pt-5" id="lightschools">
             <Col className="project-description left order-1 order-lg-0">
               <h5 className="mono small mt-3 mt-xl-0">Featured Project</h5>
-              <h4 className="bold">Lightschools</h4>
+              <h4 className="bold">
+                <span className="cursive">Lightschools</span>
+              </h4>
               <div className="project-overlap">
                 <p>
                   Lightschools is an education and innovation ecosystem that required a website with a strong visual
                   identity. The layout and graphics were designed by{" "}
-                  <a href="ilikemakingthings.com" target="_blank" rel="noreferrer">
+                  <a href="ilikemakingthings.com" target="_blank" rel="noreferrer" className="no-color">
                     Roos Vanderkamp
                   </a>{" "}
                   and I brought them to life with a pixel-perfect website. Users can signup for courses using online
@@ -211,12 +234,12 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
                 </p>
               </div>
               <p className="mt-3 white">
-                Site owners can fully edit the site, including content, photos, events, and blogs.{" "}
+                Site owners can easily edit the site, including content, photos, events, and blogs.{" "}
               </p>
-              <div className="svg-wrapper">
+              <div className="svg-wrapper pl-0">
                 <OverlayTrigger overlay={<Tooltip id="github">Live Site</Tooltip>}>
                   <a href="https://lightschools.org" target="_blank" rel="noreferrer">
-                    <img src={openSVG} />
+                    <MdOpenInNew />
                   </a>
                 </OverlayTrigger>
               </div>
@@ -279,7 +302,7 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
               <p>A website showcasing product catalogs, brochures, and company information.</p>
             </Col>
             <Col>
-              <p className="mono color3 small">Design, Development, Restructure</p>
+              <p className="mono color3 small">Design, Development, Redesign</p>
             </Col>
           </Row>
           <Row className="card d-flex flex-column">
@@ -385,9 +408,9 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
           </h3>
         </Col>
         <Col xs={10} md={8} lg={6} className="">
-          I am currently looking for opportunities to be part of exciting projects. Whether you have a question, idea,
-          or just want to say hi, my inbox is always open. I will do my best to get in touch with you as soon as
-          possible.
+          I am currently looking for opportunities to be part of <Sparkle>exciting projects</Sparkle>. Whether you have
+          a question, idea, or just want to say hi, my inbox is always open. I will do my best to get in touch with you
+          as soon as possible.
         </Col>
         <Col xs={10} md={8} lg={6} className="text-center mt-5">
           <a href="mailto:alexjohnson@sitefulstudios.com">

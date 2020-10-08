@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap')
 @import "./include-media.scss"
 
 // Config vars
@@ -18,6 +19,7 @@ $primary-invert: $black
 $font1: "Ubuntu", "Helvetica", "Arial", sans-serif
 $font2: "Roboto", "Helvetica", "Arial", sans-serif
 $font-mono: "SFMono-Regular","Menlo","Monaco","Consolas","Liberation Mono","Courier New","monospace"
+$font-cursive: "Sriracha","cursive"
 body
   font-family: $font1
   font-weight: 500
@@ -36,13 +38,100 @@ a
   color: $brand-4
   &:hover
     color: $brand-2
+  &.no-color
+    color: inherit
 .link-alt a
   color: #1ebd10
+
+.side-element
+  width: 40px
+  position: fixed
+  bottom: 0px
+  left: auto
+  right: 40px
+  z-index: 10
+  color: $white
+  opacity: 0
+  animation: fadeIn 2s ease-in-out forwards
+  .link-wrapper
+    content: ""
+    display: block
+    width: 1px
+    height: 90px
+    margin: 0px auto
+    background-color: white
+
+    a
+      margin: 20px auto
+      padding: 10px
+      font-family: $font-mono
+      font-size: .75rem
+      letter-spacing: 0.1em
+      writing-mode: vertical-rl
+      display: inline-block
+      text-decoration: none
+      text-decoration-skip-ink: auto
+      color: inherit
+      position: absolute
+      bottom: 80px
+      right: 0
+      cursor: pointer
+      transition: all 350ms ease
+      &:hover
+        color: $brand-4
+        transform: translateY(-3px)
+
+.textLinkWrapper
+  text-decoration: none
+  display: inline-block
+  position: relative
+  &:hover
+    &::after
+      transform: translateY(-0.25em)
+      opacity: 0
+      transition: transform 200ms ease 0s, opacity 350ms ease 0s
+    span:nth-child(1)
+      clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)
+    span:nth-child(2)
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)
+
+  span:nth-child(1)
+    display: inline-block
+    position: relative
+    z-index: 1
+    color: $brand-2
+    transition: clip-path 350ms ease 0s
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)
+    text-decoration: none
+
+  span:nth-child(2)
+    display: inline-block
+    position: absolute
+    z-index: 2
+    color: $brand-4
+    left: 0px
+    font-weight: inherit
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)
+    transition: clip-path 350ms ease 0s
+    user-select: none
+
+  &::after
+    content: ""
+    position: absolute
+    left: -2px
+    right: -2px
+    bottom: 0px
+    height: 2px
+    background-color: $brand-4
+    border-radius: 2px
+    transition: transform 200ms ease 150ms, opacity 350ms ease 150ms
 
 .mono
   font-family: $font-mono
   color: $white
-
+.cursive
+  font-family: $font-cursive
+  color: hsl(50deg, 100%, 50%)
 body .navbar
   background-color: $brand-3
   // border-top: solid 1rem darken($brand-3, 10%)
@@ -324,3 +413,9 @@ footer.footer
     transform: rotate(0deg)
   to
     transform: rotate(180deg)
+
+@keyframes fadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 100
