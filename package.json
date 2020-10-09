@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.24.62",
     "gatsby-image": "^2.3.5",
     "gatsby-plugin-anchor-links": "^1.1.1",

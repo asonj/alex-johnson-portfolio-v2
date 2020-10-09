@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: "Some Site",
@@ -7,7 +11,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
-        // trackingId: "UA-177304177-1",
         trackingId: `${process.env.GTAG}`,
         head: true,
         respectDNT: true,
