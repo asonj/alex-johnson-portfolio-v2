@@ -69,14 +69,14 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
             </a>
             . I worked closely with professors and local companies to develop quality video, photo, and web content.
             This journey led to the start of my own company,{" "}
-            <a href="sitefulstudios.com" target="_blank" rel="noreferrer">
+            <a href="https://sitefulstudios.com" target="_blank" rel="noreferrer">
               Siteful Studios
             </a>
             , where I now work first-hand with people around the world.
           </p>
         </Col>
         <Col xs={11} lg={4} className="mx-auto">
-          <div className="masked-image">
+          <div className="">
             <Img fluid={portrait}></Img>
           </div>
         </Col>
@@ -421,6 +421,9 @@ export const IndexPageTemplate = ({ portrait, projectImage1, projectImage2, proj
         </Col>
       </Row>
     </Container>
+    <div style={{ display: "none" }}>
+      <img src="img/logo-siteful.png" />
+    </div>
   </>
 );
 
